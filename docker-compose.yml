@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  reverse:
+    container_name: reverse
+    hostname: reverse
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./templates:/etc/nginx/templates
+    environment:
+      - VIRTUAL_HOST=harz.local
+      - REVERSE_HOST=http://info.cern.ch
+      - NGINX_PORT=80
